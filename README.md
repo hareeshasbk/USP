@@ -1,4 +1,4 @@
-Below are clear, exam-ready answers with examples and shell scripts.
+Set 6
 
 ---
 
@@ -119,3 +119,15 @@ If you want, I can also:
 
 * Convert these into **very short exam answers**
 * Rewrite them for **Linux viva** or **practical record format**
+
+---
+Set 4
+
+
+Q1:Why is PATH considered an important environment variable? Demonstrate with an
+example.
+Q2: Create a recursive ZIP archive of a directory and identify the largest file before
+compression.
+Q3: Extract the 2nd and 4th columns from a CSV file employees.txt.
+Q4: Write a shell script to count the number of occurrences of a word in a file.
+Q5:Write a shell script to stop printing numbers when it reaches 7.
