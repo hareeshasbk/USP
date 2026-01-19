@@ -251,3 +251,123 @@ If you want, I can:
 * Shorten answers for **2–3 mark questions**
 * Rewrite scripts in **POSIX sh**
 * Prepare a **lab record / viva explanation**
+
+
+
+Below are clear, exam-style answers with commands and scripts.
+
+
+---
+
+Q1: Explain why UNIX treats everything as a file
+
+UNIX follows the philosophy “everything is a file” to provide a simple, uniform interface to system resources.
+
+Regular files, directories, devices, pipes, and sockets are all accessed using the same system calls (open, read, write, close)
+
+This reduces complexity for programmers
+
+Device I/O (keyboard, disk, printer) is handled just like file I/O
+
+Enables powerful features like redirection and piping
+
+
+Example:
+
+Keyboard → /dev/tty
+
+Hard disk → /dev/sda
+
+Processes → /proc
+
+
+This design makes UNIX flexible, consistent, and modular.
+
+
+---
+
+Q2: List all files recursively with inode numbers and compress files with read and write permissions
+
+(a) List all files recursively with inode numbers
+
+ls -R -i
+
+Or using find (more powerful):
+
+find . -print -inum
+
+
+---
+
+(b) Compress files that have read and write permissions
+
+If read & write for owner (rw-------):
+
+find . -type f -perm -600 -exec gzip {} \;
+
+If read & write for all users (rw-rw-rw-):
+
+find . -type f -perm -666 -exec gzip {} \;
+
+
+---
+
+Q3: Merge two files side by side and replace a word globally
+
+Merge two files side by side
+
+paste file1 file2
+
+Replace a word globally in a file
+
+sed -i 's/oldword/newword/g' filename
+
+Example:
+
+sed -i 's/Linux/UNIX/g' file1
+
+
+---
+
+Q4: Write a shell script to compare two numbers and display exit status
+
+#!/bin/bash
+
+read -p "Enter first number: " a
+read -p "Enter second number: " b
+
+if [ $a -gt $b ]; then
+    echo "First number is greater"
+    exit 0
+elif [ $a -lt $b ]; then
+    echo "Second number is greater"
+    exit 1
+else
+    echo "Both numbers are equal"
+    exit 2
+fi
+
+Check exit status:
+
+echo $?
+
+
+---
+
+Q5: Write a shell script to perform arithmetic operations on two numbers
+
+#!/bin/bash
+
+read -p "Enter first number: " a
+read -p "Enter second number: " b
+
+echo "Addition: $((a + b))"
+echo "Subtraction: $((a - b))"
+echo "Multiplication: $((a * b))"
+echo "Division: $((a / b))"
+echo "Modulus: $((a % b))"
+
+
+---
+
+If you want, I can also rewrite these in short exam answers, with comments, or POSIX-only syntax.
