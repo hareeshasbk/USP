@@ -371,3 +371,8 @@ echo "Modulus: $((a % b))"
 ---
 
 If you want, I can also rewrite these in short exam answers, with comments, or POSIX-only syntax.
+
+https://chatgpt.com/share/696dd490-6018-8007-ac61-dcf3e9c47a2f
+
+
+https://chatgpt.com/share/696dd4ca-709c-8007-8bb4-a4e3649fdf40
