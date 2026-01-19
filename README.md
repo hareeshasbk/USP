@@ -131,3 +131,123 @@ compression.
 Q3: Extract the 2nd and 4th columns from a CSV file employees.txt.
 Q4: Write a shell script to count the number of occurrences of a word in a file.
 Q5:Write a shell script to stop printing numbers when it reaches 7.
+
+
+Here are **clear, exam-oriented answers** with examples and shell scripts.
+
+---
+
+## Q1: Why is PATH considered an important environment variable? Demonstrate with an example.
+
+**PATH** is an environment variable that tells the shell **where to look for executable programs**.
+
+### Why it is important:
+
+* Allows running commands **without specifying full path**
+* Saves time and improves usability
+* Enables execution of user-defined programs
+
+### Example:
+
+```sh
+echo $PATH
+```
+
+If `/bin` is in PATH, you can run:
+
+```sh
+ls
+```
+
+Without PATH, you must specify:
+
+```sh
+/bin/ls
+```
+
+### Adding a directory to PATH:
+
+```sh
+export PATH=$PATH:/home/user/scripts
+```
+
+---
+
+## Q2: Create a recursive ZIP archive of a directory and identify the largest file before compression
+
+### Command to find the largest file:
+
+```sh
+find mydir -type f -exec du -h {} + | sort -hr | head -n 1
+```
+
+### Create recursive ZIP archive:
+
+```sh
+zip -r mydir.zip mydir
+```
+
+✔ `-r` → recursive compression
+
+---
+
+## Q3: Extract the 2nd and 4th columns from a CSV file `employees.txt`
+
+### Using `cut`:
+
+```sh
+cut -d',' -f2,4 employees.txt
+```
+
+### Using `awk`:
+
+```sh
+awk -F',' '{print $2, $4}' employees.txt
+```
+
+---
+
+## Q4: Write a shell script to count the number of occurrences of a word in a file
+
+### Script:
+
+```sh
+#!/bin/bash
+
+echo "Enter word:"
+read word
+
+echo "Enter filename:"
+read file
+
+count=$(grep -o -w "$word" "$file" | wc -l)
+
+echo "Occurrences of '$word': $count"
+```
+
+---
+
+## Q5: Write a shell script to stop printing numbers when it reaches 7
+
+### Script:
+
+```sh
+#!/bin/bash
+
+for i in {1..10}
+do
+    if [ $i -eq 7 ]
+    then
+        break
+    fi
+    echo $i
+done
+```
+
+---
+
+If you want, I can:
+
+* Shorten answers for **2–3 mark questions**
+* Rewrite scripts in **POSIX sh**
+* Prepare a **lab record / viva explanation**
